@@ -5,24 +5,32 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
-
+    public bool SpawnModeEnabled = false;
+    public GameObject standardTurretPrefab;
+    private GameObject turretToBuild;
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.Log("mote than one Buildmanager in scene");
+            Debug.Log("More than one Buildmanager in scene");
             return;
         }
         instance = this;
     }
-    public GameObject standardTurretPrefab;
     private void Start()
     {
         turretToBuild = standardTurretPrefab;
     }
-    private GameObject turretToBuild;
     public GameObject GetTurretToBuild()
     {
         return turretToBuild;
+    }
+    public void EnableSpawnMode()
+    {
+        SpawnModeEnabled = true;
+    }
+    public void DisableSpawnMode()
+    {
+        SpawnModeEnabled = false;
     }
 }

@@ -12,37 +12,42 @@ public class CameraMovement : MonoBehaviour
     private Vector3 touchStart;
     private float moveCooldown = 0.5f;
     private float zoomTimer = 0;
+    protected bool blocedMovement = false;
 
 
     // Update is called once per frame
     void Update()
     {
-        zoomTimer -= Time.deltaTime;
-        if (Input.GetMouseButtonDown(0))
-        {
-            touchStart = GetWorldPosition(0);
-        }
+       if(!blocedMovement)
+       {
+            zoomTimer -= Time.deltaTime;
+            if (Input.GetMouseButtonDown(0))
+            {
+                touchStart = GetWorldPosition(0);
+            }
 
-        if (Input.touchCount == 2)
-        {
-            Touch touchZero = Input.GetTouch(0);
-            Touch touchOne = Input.GetTouch(1);
+            if (Input.touchCount == 2)
+            {
+                Touch touchZero = Input.GetTouch(0);
+                Touch touchOne = Input.GetTouch(1);
 
-            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+                Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+                Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
-            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-            float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
+                float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+                float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
 
-            float difference = currentMagnitude - prevMagnitude;
+                float difference = currentMagnitude - prevMagnitude;
 
-            zoom(difference*0.1f);
-            zoomTimer = moveCooldown;
+                zoom(difference * 0.1f);
+                zoomTimer = moveCooldown;
 
-        } else if (Input.GetMouseButton(0) && zoomTimer < 0)
-        {
-            Vector3 direction = touchStart - GetWorldPosition(0);
-            Camera.main.transform.position += direction;
+            }
+            else if (Input.GetMouseButton(0) && zoomTimer < 0)
+            {
+                Vector3 direction = touchStart - GetWorldPosition(0);
+                Camera.main.transform.position += direction;
+            }
         }
 
         //allow to zoom with Scrollwheel
@@ -63,4 +68,12 @@ public class CameraMovement : MonoBehaviour
         return mousePos.GetPoint(distance);
     }
 
+    public void BlockCameraMovement()
+    {
+        blocedMovement = true;
+    }
+    public void UnlockCameraMovement()
+    {
+        blocedMovement = false;
+    }
 }
