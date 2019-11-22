@@ -10,7 +10,7 @@ public class Node : MonoBehaviour
     
     void OnMouseDown()
     {
-        if (canNotSpawnHere)
+        if (!canNotSpawnHere)
         {
             if (turret != null)
             {
