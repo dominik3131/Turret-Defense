@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 2f;
+    public int damage = 5;
 
     private Transform target;
 
@@ -16,8 +17,7 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        if(gameObject.active)
-        {
+
             Vector3 direction = target.position - transform.position;
             transform.Translate(direction.normalized * 3 * Time.deltaTime, Space.World);
 
@@ -25,19 +25,14 @@ public class Enemy : MonoBehaviour
             {
                 getNextWaypoint();
             }
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
     }
     void getNextWaypoint()
     {
         
             if (wavePointIndex >= Waypoints.points.Length - 1)
             {
-            gameObject.SetActive(false);
-                
+                target = Waypoints.points[0];
                 return;
             }
             wavePointIndex++;
