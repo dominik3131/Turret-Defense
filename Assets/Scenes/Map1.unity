@@ -581,6 +581,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!4 &240295130 stripped
@@ -1384,6 +1389,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!4 &603820428 stripped
@@ -1664,6 +1674,11 @@ PrefabInstance:
     - target: {fileID: 4482437886289408, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
@@ -2206,6 +2221,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!1 &913961695
@@ -2675,6 +2695,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!1001 &1091090250
@@ -3011,6 +3036,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!1001 &1195375166
@@ -3268,6 +3298,11 @@ PrefabInstance:
     - target: {fileID: 4482437886289408, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
@@ -3744,6 +3779,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!1001 &1573136482
@@ -3865,7 +3905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2047296a07a52a14a9d44c6ddb1d8211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 100000, guid: b1fccda3ec0dee645894bfec54757496, type: 3}
+  standardTurretPrefab: {fileID: 8807312106607699956, guid: 37c14184bafe5d440beb944c8b166d28,
+    type: 3}
 --- !u!4 &1603564359
 Transform:
   m_ObjectHideFlags: 0
@@ -4611,6 +4652,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1747548222859814324, guid: 1d9cc67243350f643b8c562ed0503c49,
+        type: 3}
+      propertyPath: canNotSpawnHere
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
 --- !u!1001 &1958473634
@@ -4959,6 +5005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24530761aee6c18498e8e7a482bc51e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canNotSpawnHere: 0
 --- !u!1 &2075876189
 GameObject:
   m_ObjectHideFlags: 0
