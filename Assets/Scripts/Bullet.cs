@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     public float speed = 70f;
+    public int damage = 10;
+
 
     public void Seek(Transform _target)
     {
@@ -37,7 +39,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Destroy(target.gameObject);
+        target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
         Destroy(gameObject);
     }
 }
