@@ -5,17 +5,23 @@ using System.Collections;
 
 public class WaveSpanner : MonoBehaviour
 {
+    public static int EnemiesAlive = 0;
+
     public Transform enemyPrefab;
 
     public Transform spawnPoint;
 
-    public float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    public float timeBetweenWaves = 8f;
+    private float countdown = 5f;
 
     private int waveNumber = 0;
 
     void Update()
     {
+        //if(EnemiesAlive > 0)
+        //{
+        //    return;
+        //}
         if(countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
@@ -40,6 +46,7 @@ public class WaveSpanner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlive++;
     }
 
     public int getWaveNumber()
