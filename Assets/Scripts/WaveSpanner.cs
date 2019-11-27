@@ -27,7 +27,6 @@ public class WaveSpanner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        Debug.Log("Wave Incoming!");
         waveNumber++;
         for (int i = 0; i < waveNumber; i++)
         {
@@ -41,5 +40,10 @@ public class WaveSpanner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    public int getWaveNumber()
+    {
+        return waveNumber;
     }
 }

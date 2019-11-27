@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class TargetObject : MonoBehaviour
 {
-    public float rangeOfDestroy = 0.5f;
-    public int health;
-
     void Start()
     {
-        health = 100;
     }
     // Update is called once per frame
     void Update()
     {
-        if(health <= 0)
+        if(gameObject == null && !ReferenceEquals(gameObject,null))
         {
             showLossingScreen();
         }
@@ -24,13 +20,12 @@ public class TargetObject : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
-            health -= collision.gameObject.GetComponent<Enemy>().damage;
+            GetComponent<Health>().takeDamage(collision.gameObject.GetComponent<Enemy>().damage);
         }
     }
 
     private void showLossingScreen()
     {
-        Destroy(gameObject);
+        Debug.Log("end of the game");
     }
 }
