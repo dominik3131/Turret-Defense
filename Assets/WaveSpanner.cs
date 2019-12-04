@@ -18,10 +18,10 @@ public class WaveSpanner : MonoBehaviour
 
     void Update()
     {
-        //if(EnemiesAlive > 0)
-        //{
-        //    return;
-        //}
+        if(EnemiesAlive > 0)
+        {
+            return;
+        }
         if(countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
