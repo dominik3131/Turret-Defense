@@ -6,6 +6,7 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
     public bool SpawnModeEnabled = false;
+    public List<GameObject> weaponTypes;
     public GameObject standardTurretPrefab;
     private GameObject turretToBuild;
     private void Awake()
@@ -32,5 +33,9 @@ public class BuildManager : MonoBehaviour
     public void DisableSpawnMode()
     {
         SpawnModeEnabled = false;
+    }
+    public void SetWeaponToBuild(int index)
+    {
+        turretToBuild = weaponTypes[index]; 
     }
 }
