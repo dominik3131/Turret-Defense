@@ -9,8 +9,10 @@ public class MainMenu : MonoBehaviour
 
     public Button newGameButton;
     public Button creditsButton;
+    public Button shopButton;
+    public Button levelsButton;
     public Button exitButton;
-    public Button CreditsToMenuButton;
+    public List<Button> backToMenuButtons;
 
     /** canvas group that holds game logo that is shown at game lauch */
     public CanvasGroup logoCanvasGroup;
@@ -18,6 +20,10 @@ public class MainMenu : MonoBehaviour
     public CanvasGroup mainMenuCanvasGroup;
     /** canvas group that allows to see game credits*/
     public CanvasGroup creditsCanvasGroup;
+    /** canvas group that allows to see levels select*/
+    public CanvasGroup levelsCanvasGroup;
+    /** canvas group that allows to see in game shop*/
+    public CanvasGroup shopCanvasGroup;
 
     public AdManager adManager;
 
@@ -35,7 +41,9 @@ public class MainMenu : MonoBehaviour
         newGameButton.onClick.AddListener(NewGame);
         exitButton.onClick.AddListener(Exit);
         creditsButton.onClick.AddListener(ShowCredits);
-        CreditsToMenuButton.onClick.AddListener(ShowMenu);
+        shopButton.onClick.AddListener(ShowShop);
+        levelsButton.onClick.AddListener(ShowLevels);
+        backToMenuButtons.ForEach(button => button.onClick.AddListener(ShowMenu));
     }
     /** when object is awaken deactivates all canvas in scene and starts animation of game logo and later shows menu */
     public void Awake()
@@ -43,9 +51,12 @@ public class MainMenu : MonoBehaviour
         logoCanvasGroup.gameObject.SetActive(false);
         mainMenuCanvasGroup.gameObject.SetActive(false);
         creditsCanvasGroup.gameObject.SetActive(false);
+        levelsCanvasGroup.gameObject.SetActive(false);
+        shopCanvasGroup.gameObject.SetActive(false);
         StartCoroutine(Fade.FadeCanvas(logoCanvasGroup, 0f, 1f, 2f, 0f));
         StartCoroutine(Fade.FadeCanvas(logoCanvasGroup, 1f, 0f, 2f, 4f));
         StartCoroutine(Fade.FadeCanvas(mainMenuCanvasGroup, 0f, 1f, 2f, 6f));
+        activeCanvasGroup = mainMenuCanvasGroup;
         StartCoroutine(ShowAds(10f));
     }
 
@@ -76,6 +87,19 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(Fade.FadeCanvas(mainMenuCanvasGroup, 0f, 1f, 0.5f, 0f));
         activeCanvasGroup = mainMenuCanvasGroup;
     }
+    public void ShowLevels()
+    {
+        StartCoroutine(Fade.FadeCanvas(activeCanvasGroup, 1f, 0f, 0.5f, 0f));
+        StartCoroutine(Fade.FadeCanvas(levelsCanvasGroup, 0f, 1f, 0.5f, 0f));
+        activeCanvasGroup = levelsCanvasGroup;
+    }
+    public void ShowShop()
+    {
+        StartCoroutine(Fade.FadeCanvas(activeCanvasGroup, 1f, 0f, 0.5f, 0f));
+        StartCoroutine(Fade.FadeCanvas(shopCanvasGroup, 0f, 1f, 0.5f, 0f));
+        activeCanvasGroup = shopCanvasGroup;
+    }
+
     protected IEnumerator ShowAds(float delay)
     {
         yield return new WaitForSeconds(delay);

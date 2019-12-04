@@ -55,7 +55,7 @@
   </files>
   <settings>
     <setting name="androidAbis" value="armeabi-v7a" />
-    <setting name="bundleId" value="com.DefaultCompany.TowerDefenceApp" />
+    <setting name="bundleId" value="com.PGiAnUP_2019_Dzienni_6.TowerDefenceApp" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />
