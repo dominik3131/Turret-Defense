@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 70f;
     public int damage = 10;
+    private bool hited = false;
 
 
     public void Seek(Transform _target)
@@ -36,10 +37,15 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
     }
-
+    
     void HitTarget()
     {
-        target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
-        Destroy(gameObject);
+        
+        if(hited != true)
+        {
+            target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
+            Destroy(gameObject);
+        }
+        hited = true;
     }
 }
