@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : Weapon
 {
 
     private Transform target;
@@ -22,10 +23,19 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    private GameObject indicator;
+        
+
     // Use this for initialization
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        Transform[] ts = gameObject.GetComponentsInChildren<Transform>();
+        foreach (Transform t in ts)
+            if (t.gameObject.name == "Indicator") {
+                indicator = t.gameObject;
+            }
+                
     }
 
     void UpdateTarget()
@@ -57,6 +67,14 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isSelected)
+        {
+            indicator.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            indicator.GetComponent<SpriteRenderer>().enabled = false;
+        }
         if ( target == null )
             return;
 
@@ -90,8 +108,6 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
-    void OnMouseDown()
-    { 
-            
-    }
+   
+
 }
