@@ -4,7 +4,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
 
-    private Transform target;
+    protected Transform target;
 
     [Header("Attributes")]
 
@@ -23,12 +23,12 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void UpdateTarget()
+    public void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -55,7 +55,7 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if ( target == null )
             return;
@@ -66,17 +66,21 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if ( fireCountdown <= 0f )
+        fireCooldown();
+    }
+
+    protected virtual void fireCooldown()
+    {
+        if (fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
-
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         GameObject bulletGO = ( GameObject )Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();

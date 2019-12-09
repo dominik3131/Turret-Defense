@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 70f;
     public int damage = 10;
-
+    public float damageRange = 0f;
 
     public void Seek(Transform _target)
     {
@@ -39,7 +39,29 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
+        if(damageRange > 0)
+        {
+            Explosion(target.gameObject);
+        } else
+        {
+            target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
+        }
+
         Destroy(gameObject);
+    }
+
+    void Explosion(GameObject enemy)
+    {
+        Collider[] collidersInRange = Physics.OverlapSphere(enemy.transform.position, damageRange);
+
+        foreach (Collider currentCollider in collidersInRange)
+        {
+            if (currentCollider.tag.Equals("Enemy"))
+            {
+                float damagePercent = Vector3.Distance(currentCollider.gameObject.transform.position, transform.position) / damageRange;
+                currentCollider.gameObject.GetComponentInChildren<Health>().takeDamage(damage * damagePercent);
+                Debug.Log("OBRANZENIA"+ damage);
+            }
+        }
     }
 }

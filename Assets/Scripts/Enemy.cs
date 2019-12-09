@@ -4,40 +4,45 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 2f;
+    public float initialSpeed = 2f;
     public int damage = 5;
 
     private Transform target;
-
     private int wavePointIndex = 0;
+    private float speed;
 
     void Start()
     {
         target = Waypoints.points[0];
+        speed = initialSpeed;
     }
     void Update()
     {
+        Vector3 direction = target.position - transform.position;
+        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
-            Vector3 direction = target.position - transform.position;
-            transform.Translate(direction.normalized * 3 * Time.deltaTime, Space.World);
-
-            if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-            {
-                getNextWaypoint();
-            }
-
+        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        {
+            getNextWaypoint();
+        }
+        speed = initialSpeed;
     }
     void getNextWaypoint()
     {
         
-            if (wavePointIndex >= Waypoints.points.Length - 1)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            wavePointIndex++;
-            target = Waypoints.points[wavePointIndex];
-        
-        
+        if (wavePointIndex >= Waypoints.points.Length - 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        wavePointIndex++;
+        target = Waypoints.points[wavePointIndex];
+
     }
+
+    public void decreaseSpeed(float slowDown)
+    {
+        speed = initialSpeed - slowDown;
+    }
+
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public float maxHealth = 100;
     [SerializeField]
-    private int currentHealth;
+    private float currentHealth;
 
     public event System.Action<float> onHealthChanged = delegate { };
 
@@ -16,10 +16,10 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void takeDamage(int amount)
+    public void takeDamage(float amount)
     {
         currentHealth -= amount;
-        onHealthChanged((float)currentHealth / (float)maxHealth);
+        onHealthChanged(currentHealth / maxHealth);
 
         if(currentHealth <= 0)
         {
