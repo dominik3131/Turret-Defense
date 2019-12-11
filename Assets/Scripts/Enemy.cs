@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 2f;
     public int damage = 5;
-
+    private bool freezed = false;
     private Transform target;
 
     private int wavePointIndex = 0;
@@ -17,27 +17,33 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-
+        if ( !freezed )
+        {
             Vector3 direction = target.position - transform.position;
-            transform.Translate(direction.normalized * 3 * Time.deltaTime, Space.World);
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
-            if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+            if ( Vector3.Distance(transform.position, target.position) <= 0.4f )
             {
                 getNextWaypoint();
             }
-
+        }
     }
     void getNextWaypoint()
     {
-        
-            if (wavePointIndex >= Waypoints.points.Length - 1)
-            {
-               Destroy(gameObject);
-                return;
-            }
-            wavePointIndex++;
-            target = Waypoints.points[wavePointIndex];
-        
-        
+        if ( wavePointIndex >= Waypoints.points.Length - 1 )
+        {
+            Destroy(gameObject);
+            return;
+        }
+        wavePointIndex++;
+        target = Waypoints.points[wavePointIndex];
+    }
+    public void Freeze()
+    {
+        freezed = true;
+    }
+    public void UnFreeze()
+    {
+        freezed = false;
     }
 }
