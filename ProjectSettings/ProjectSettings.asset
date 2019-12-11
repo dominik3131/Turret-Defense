@@ -746,10 +746,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 6810c8fd-eb71-4483-b06c-d95724f89e54
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: TowerDefenceApp
+  organizationId: rakdominikrak
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
