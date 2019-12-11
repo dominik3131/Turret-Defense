@@ -12,9 +12,6 @@ public class ItemManager : MonoBehaviour
     public float freezeTime = 2.5f;
     void Start()
     {
-        //TODO Delete after shop is configured
-        PlayerPrefs.SetInt("FREEZE_POTIONS", 9);
-        PlayerPrefs.SetInt("FIRE_POTIONS", 9);
         fireButton.onClick.AddListener(UseFirePotion);
         freezeButton.onClick.AddListener(UseFreezePotion);
         fireButton.GetComponentInChildren<Text>().text = PlayerPrefs.GetInt("FIRE_POTIONS").ToString();
@@ -54,7 +51,7 @@ public class ItemManager : MonoBehaviour
     }
     IEnumerator RedOverlay()
     {
-        Color red = new Color(1, 0, 0, 0.5f);
+        Color red = new Color(1, 0, 0, 0.3f);
         overlay.color = red;
         yield return new WaitForSeconds(0.5f);
         red.a = 0f;
@@ -62,7 +59,7 @@ public class ItemManager : MonoBehaviour
     }
     IEnumerator BlueOverlay()
     {
-        Color blue = new Color(0, 0, 1, 0.5f);
+        Color blue = new Color(0, 0, 1, 0.3f);
         overlay.color = blue;
         yield return new WaitForSeconds(2);
         blue.a = 0f;
