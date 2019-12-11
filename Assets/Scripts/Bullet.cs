@@ -8,6 +8,15 @@ public class Bullet : MonoBehaviour
     public float speed = 70f;
     public int damage = 10;
     public float damageRange = 0f;
+    public GameObject explosionPrefab;
+
+    public void Start()
+    {
+        if(explosionPrefab != null && damageRange != null)
+        {
+            explosionPrefab.transform.localScale = new Vector3(damageRange, damageRange, damageRange);
+        }
+    }
 
     public void Seek(Transform _target)
     {
@@ -34,7 +43,6 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-
     }
 
     void HitTarget()
@@ -58,9 +66,10 @@ public class Bullet : MonoBehaviour
         {
             if (currentCollider.tag.Equals("Enemy"))
             {
-                float damagePercent = Vector3.Distance(currentCollider.gameObject.transform.position, transform.position) / damageRange;
+                float damagePercent = Vector3.Distance(currentCollider.gameObject.transform.position, transform.position) / damageRange * 5.0f ;
                 currentCollider.gameObject.GetComponentInChildren<Health>().takeDamage(damage * damagePercent);
-                Debug.Log("OBRANZENIA"+ damage);
+                Instantiate(explosionPrefab, transform.position, transform.rotation);
+                Debug.Log(currentCollider.gameObject.transform.position);
             }
         }
     }
