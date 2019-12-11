@@ -1,7 +1,7 @@
 ﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 public class WaveSpanner : MonoBehaviour
 {
@@ -18,11 +18,11 @@ public class WaveSpanner : MonoBehaviour
 
     void Update()
     {
-        if(EnemiesAlive > 0)
+        if ( EnemiesAlive > 0 )
         {
             return;
         }
-        if(countdown <= 0f)
+        if ( countdown <= 0f )
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
@@ -34,13 +34,13 @@ public class WaveSpanner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveNumber++;
-        for (int i = 0; i < waveNumber; i++)
+        for ( int i = 0; i < waveNumber; i++ )
         {
             SpawnEnemy();
             yield return new WaitForSeconds(1);
         }
 
-        
+
     }
 
     void SpawnEnemy()
