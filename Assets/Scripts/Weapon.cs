@@ -6,13 +6,41 @@ using System.Linq;
 public class Weapon : MonoBehaviour
 {
     public bool isSelected = false;
-    public void Upgrade()
+    public int level = 1;
+    public int price = 200;
+    public int upgradePrice = 150;
+
+    public bool Upgrade()
     {
-        Debug.Log(gameObject.name + " upgraded !");
+        if (level == 3) return false;
+        if (LevelMoneyManager.instance.CanAffordTo(upgradePrice*level))
+        {
+            LevelMoneyManager.instance.SpendMoney(upgradePrice*level);
+            level += 1;
+            UpgradeLook();
+            UpgradeActivity();
+           // Debug.Log(gameObject.name + " upgraded !");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+    virtual public void UpgradeLook()
+    {
+
+    }
+    virtual public void UpgradeActivity()
+    {
+
     }
     public void Sell()
     {
-        Debug.Log(gameObject.name + " sold!");
+        LevelMoneyManager.instance.AddMoney((int) price/2);
+        //Debug.Log(gameObject.name + " sold!");
+        Destroy(gameObject);
     }
     void OnMouseDown()
     {

@@ -1468,9 +1468,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Weapon 3
-
-'
+  m_Text: Laser
 --- !u!222 &368887433
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4217,7 +4215,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Weapon 2
+  m_Text: 'Rocket Launcher
+
+'
 --- !u!222 &1182397631
 CanvasRenderer:
   m_ObjectHideFlags: 0

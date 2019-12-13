@@ -108,6 +108,27 @@ public class Turret : Weapon
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
-   
+
+    public override void UpgradeLook()
+    {
+        base.UpgradeLook();
+        gameObject.transform.localScale += new Vector3((float)0.1, (float) 0.1,(float) 0.1);
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        foreach(Renderer r in renderers)
+        {
+            foreach (Material m in r.materials)
+            {
+                if(m.name != "Sprites-Default")
+                m.color += new Color(0.44f,0.1f,0.1f);
+            }
+        }
+            
+        }
+    public override void UpgradeActivity()
+    {
+        base.UpgradeActivity();
+        range += level;
+        bulletPrefab.GetComponent<Bullet>().damage += level;  
+    }
 
 }
