@@ -7,7 +7,7 @@ public class Node : MonoBehaviour
     // set to true blocks object spawning on map node
     public bool canNotSpawnHere;
     private GameObject turret;
-    private bool isTaken = false;
+    public bool isTaken = false;
     
     void OnMouseDown()
     {
@@ -27,6 +27,7 @@ public class Node : MonoBehaviour
                 Vector3 temp = new Vector3(transform.position.x, transform.position.y + 1 + height, transform.position.z);
 
                 turret = (GameObject)Instantiate(turretToBuild, temp, transform.rotation);
+                turret.GetComponent<Weapon>().node = this;
                 isTaken = true;
                 Debug.Log("Turret placed.");
             }

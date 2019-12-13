@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public int level = 1;
     public int price = 200;
     public int upgradePrice = 150;
+    public Node node;
 
     public bool Upgrade()
     {
@@ -40,6 +41,7 @@ public class Weapon : MonoBehaviour
     {
         LevelMoneyManager.instance.AddMoney((int) price/2);
         //Debug.Log(gameObject.name + " sold!");
+        node.isTaken = false;
         Destroy(gameObject);
     }
     void OnMouseDown()
