@@ -32,7 +32,7 @@ public class LevelMoneyManager : MonoBehaviour
 
     public void SpendMoney(int amount)
     {
-        if ((currentMoney -= amount)> 0)
+        if ((currentMoney - amount) <= 0)
         {
             currentMoney = 0;
         }

@@ -15,11 +15,13 @@ public class Node : MonoBehaviour
         {
             if (!isTaken) 
             {
-                if (turret != null)
+                int price = BuildManager.instance.GetTurretToBuild().GetComponent<Weapon>().price;
+                if (turret != null || !(LevelMoneyManager.instance.CanAffordTo(price)))
                 {
                     Debug.Log("Can't build object.");
                     return;
                 }
+                LevelMoneyManager.instance.SpendMoney(price);
                 GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
                 float height = turretToBuild.transform.lossyScale.y / 2;
                 Vector3 temp = new Vector3(transform.position.x, transform.position.y + 1 + height, transform.position.z);
