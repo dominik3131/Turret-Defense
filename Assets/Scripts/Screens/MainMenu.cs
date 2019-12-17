@@ -53,9 +53,9 @@ public class MainMenu : MonoBehaviour
         creditsCanvasGroup.gameObject.SetActive(false);
         levelsCanvasGroup.gameObject.SetActive(false);
         shopCanvasGroup.gameObject.SetActive(false);
-        StartCoroutine(Fade.FadeCanvas(logoCanvasGroup, 0f, 1f, 2f, 0f));
-        StartCoroutine(Fade.FadeCanvas(logoCanvasGroup, 1f, 0f, 2f, 4f));
-        StartCoroutine(Fade.FadeCanvas(mainMenuCanvasGroup, 0f, 1f, 2f, 6f));
+        StartCoroutine(Fade.FadeCanvas(logoCanvasGroup, 0f, 1f, 1f, 0f));
+        StartCoroutine(Fade.FadeCanvas(logoCanvasGroup, 1f, 0f, 1f, 2f));
+        StartCoroutine(Fade.FadeCanvas(mainMenuCanvasGroup, 0f, 1f, 1f, 4f));
         activeCanvasGroup = mainMenuCanvasGroup;
         StartCoroutine(ShowAds(10f));
     }
@@ -64,6 +64,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         sceneLoader.LoadScene(1);
+        adManager.HideBannerAd();
     }
     /**exits game */
     public void Exit()
