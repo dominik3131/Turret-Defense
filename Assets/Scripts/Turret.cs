@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : Weapon
 {
 
     protected Transform target;
@@ -23,12 +24,22 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
     public GameObject rangeSphere;
 
+    private GameObject indicator;
+
+
     // Use this for initialization
     public void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
         rangeSphere = Instantiate(rangeSphere, transform.position, partToRotate.rotation);
         rangeSphere.transform.localScale = new Vector3(range, range, range);
+
+        Transform[] ts = gameObject.GetComponentsInChildren<Transform>();
+        foreach (Transform t in ts)
+            if (t.gameObject.name == "Indicator") {
+                indicator = t.gameObject;
+            }
     }
 
     public void UpdateTarget()
@@ -36,17 +47,17 @@ public class Turret : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        foreach ( GameObject enemy in enemies )
+        foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if ( distanceToEnemy < shortestDistance )
+            if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
-        if ( nearestEnemy != null && shortestDistance <= range )
+        if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
         }
@@ -60,7 +71,15 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if ( target == null )
+        if (isSelected)
+        {
+            indicator.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            indicator.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        if (target == null)
             return;
 
         //Target lock on
@@ -94,10 +113,10 @@ public class Turret : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        GameObject bulletGO = ( GameObject )Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
-        if ( bullet != null )
+        if (bullet != null)
             bullet.Seek(target);
     }
 
@@ -106,4 +125,28 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
+    public override void UpgradeLook()
+    {
+        base.UpgradeLook();
+        gameObject.transform.localScale += new Vector3((float)0.1, (float)0.1, (float)0.1);
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in renderers)
+        {
+            foreach (Material m in r.materials)
+            {
+                if (m.name != "Sprites-Default")
+                    m.color += new Color(0.44f, 0.1f, 0.1f);
+            }
+        }
+
+    }
+
+    public override void UpgradeActivity()
+    {
+        base.UpgradeActivity();
+        range += level;
+        bulletPrefab.GetComponent<Bullet>().damage += level;  
+    }
+
 }

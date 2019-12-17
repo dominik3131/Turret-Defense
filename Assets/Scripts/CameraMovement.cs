@@ -12,13 +12,13 @@ public class CameraMovement : MonoBehaviour
     private Vector3 touchStart;
     private float moveCooldown = 0.5f;
     private float zoomTimer = 0;
-    protected bool blocedMovement = false;
+    protected bool blockedMovement = false;
 
 
     // Update is called once per frame
     void Update()
     {
-       if(!blocedMovement)
+       if(!blockedMovement)
        {
             zoomTimer -= Time.deltaTime;
             if (Input.GetMouseButtonDown(0))
@@ -70,10 +70,10 @@ public class CameraMovement : MonoBehaviour
 
     public void BlockCameraMovement()
     {
-        blocedMovement = true;
+        blockedMovement = true;
     }
     public void UnlockCameraMovement()
     {
-        blocedMovement = false;
+        blockedMovement = false;
     }
 }

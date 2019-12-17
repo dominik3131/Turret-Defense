@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     public void Start()
     {
-        if(explosionPrefab != null && damageRange != null)
+        if(explosionPrefab != null && damageRange != 0f)
         {
             explosionPrefab.transform.localScale = new Vector3(damageRange, damageRange, damageRange);
         }
@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
-
+    
     void HitTarget()
     {
         if(damageRange > 0)
