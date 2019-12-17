@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ad3f2968c9f57458d8b1a4a6d15802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 5
   fireRate: 0.5
   enemyTag: Enemy
   partToRotate: {fileID: 8339936794666970504}
@@ -53,6 +53,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 490867278185722571, guid: 8154aa0a3082f1b48a05d92e5d47068a,
     type: 3}
   firePoint: {fileID: 9126709037251439287}
+  rangeSphere: {fileID: 7866011706980096377, guid: 8d03fef2fc22b5e4683723b65fcab4b1,
+    type: 3}
   missleInCannon: {fileID: 7476911054167782854}
 --- !u!1 &6170542403822605674
 GameObject:

@@ -51,7 +51,7 @@ public class CameraMovement : MonoBehaviour
         }
 
         //allow to zoom with Scrollwheel
-        //zoom(Input.GetAxis("Mouse ScrollWheel"));
+        zoom(Input.GetAxis("Mouse ScrollWheel")*10);
     }
 
     void zoom(float increment)
