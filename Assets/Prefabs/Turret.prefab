@@ -328,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 8807312106607699956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.39, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.87177, y: 0.82590866, z: 0.75559}
   m_Children:
   - {fileID: 3798668666559090016}
   - {fileID: 3608872196550111555}
@@ -349,7 +349,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  range: 15
+  level: 1
+  price: 200
+  upgradePrice: 150
+  node: {fileID: 0}
+  range: 8
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 3608872196550111555}
@@ -357,6 +361,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 405891425253894113, guid: 9053e26d9fad0bc46bf981a0a7b93a7b,
     type: 3}
   firePoint: {fileID: 3000001654842254587}
+  rangeSphere: {fileID: 7866011706980096377, guid: 8d03fef2fc22b5e4683723b65fcab4b1,
+    type: 3}
 --- !u!65 &598577247680930644
 BoxCollider:
   m_ObjectHideFlags: 0

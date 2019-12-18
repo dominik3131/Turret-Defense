@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : Weapon
 {
 
-    private Transform target;
+    protected Transform target;
 
     [Header("Attributes")]
 
@@ -22,38 +22,42 @@ public class Turret : Weapon
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject rangeSphere;
 
     private GameObject indicator;
-        
+
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
+        rangeSphere = Instantiate(rangeSphere, transform.position, partToRotate.rotation);
+        rangeSphere.transform.localScale = new Vector3(range, range, range);
+
         Transform[] ts = gameObject.GetComponentsInChildren<Transform>();
         foreach (Transform t in ts)
             if (t.gameObject.name == "Indicator") {
                 indicator = t.gameObject;
             }
-                
     }
 
-    void UpdateTarget()
+    public void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        foreach ( GameObject enemy in enemies )
+        foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if ( distanceToEnemy < shortestDistance )
+            if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
-        if ( nearestEnemy != null && shortestDistance <= range )
+        if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
         }
@@ -65,7 +69,7 @@ public class Turret : Weapon
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (isSelected)
         {
@@ -75,7 +79,17 @@ public class Turret : Weapon
         {
             indicator.GetComponent<SpriteRenderer>().enabled = false;
         }
-        if ( target == null )
+
+        if (BuildManager.instance.SpawnModeEnabled)
+        {
+            rangeSphere.SetActive(true);
+        }
+        else
+        {
+            rangeSphere.SetActive(false);
+        }
+
+        if (target == null)
             return;
 
         //Target lock on
@@ -84,22 +98,26 @@ public class Turret : Weapon
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if ( fireCountdown <= 0f )
+        fireCooldown();
+    }
+
+    protected virtual void fireCooldown()
+    {
+        if (fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
-
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
-        GameObject bulletGO = ( GameObject )Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
-        if ( bullet != null )
+        if (bullet != null)
             bullet.Seek(target);
     }
 
@@ -112,18 +130,19 @@ public class Turret : Weapon
     public override void UpgradeLook()
     {
         base.UpgradeLook();
-        gameObject.transform.localScale += new Vector3((float)0.1, (float) 0.1,(float) 0.1);
+        gameObject.transform.localScale += new Vector3((float)0.1, (float)0.1, (float)0.1);
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
-        foreach(Renderer r in renderers)
+        foreach (Renderer r in renderers)
         {
             foreach (Material m in r.materials)
             {
-                if(m.name != "Sprites-Default")
-                m.color += new Color(0.44f,0.1f,0.1f);
+                if (m.name != "Sprites-Default")
+                    m.color += new Color(0.44f, 0.1f, 0.1f);
             }
         }
-            
-        }
+
+    }
+
     public override void UpgradeActivity()
     {
         base.UpgradeActivity();

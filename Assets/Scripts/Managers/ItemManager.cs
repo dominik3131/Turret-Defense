@@ -97,7 +97,7 @@ public class ItemManager : MonoBehaviour
             Health enemy = gameObject.GetComponent<Health>();
             if ( enemy )
             {
-                enemy.takeDamage(firePotionDamage);
+                enemy.TakeDamage(firePotionDamage);
             }
         }
     }
