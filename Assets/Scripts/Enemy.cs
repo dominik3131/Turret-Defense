@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 2f;
+    public float initialSpeed = 2f;
     public int damage = 5;
     private bool freezed = false;
     private Transform target;
-
     private int wavePointIndex = 0;
+    private float speed;
 
     void Start()
     {
         target = Waypoints.points[0];
+        speed = initialSpeed;
     }
     void Update()
     {
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
             {
                 getNextWaypoint();
             }
+            speed = initialSpeed;
         }
     }
     void getNextWaypoint()
@@ -37,7 +39,14 @@ public class Enemy : MonoBehaviour
         }
         wavePointIndex++;
         target = Waypoints.points[wavePointIndex];
+
     }
+
+    public void decreaseSpeed(float slowDown)
+    {
+        speed = initialSpeed - slowDown;
+    }
+
     public void Freeze()
     {
         freezed = true;
@@ -47,3 +56,4 @@ public class Enemy : MonoBehaviour
         freezed = false;
     }
 }
+
