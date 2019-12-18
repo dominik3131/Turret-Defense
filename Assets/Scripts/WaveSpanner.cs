@@ -7,7 +7,7 @@ public class WaveSpanner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 
-    public Transform enemyPrefab;
+    public Wave[] waves;
 
     public Transform spawnPoint;
 
@@ -18,14 +18,15 @@ public class WaveSpanner : MonoBehaviour
 
     void Update()
     {
-        if ( EnemiesAlive > 0 )
+        if (EnemiesAlive > 0)
         {
             return;
         }
-        if ( countdown <= 0f )
+        if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
 
         countdown -= Time.deltaTime;
@@ -33,19 +34,23 @@ public class WaveSpanner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        waveNumber++;
-        for ( int i = 0; i < waveNumber; i++ )
+        Wave wave = waves[waveNumber];
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(1);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1 / wave.rate);
         }
+        waveNumber++;
 
-
+        if (waveNumber == waves.Length)
+        {
+            waveNumber = 0;
+        }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlive++;
     }
 
