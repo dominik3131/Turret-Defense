@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
         
         if(hited != true)
         {
-            target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
+            target.gameObject.GetComponentInChildren<Health>().TakeDamage(damage);
             Destroy(gameObject);
         }
         hited = true;

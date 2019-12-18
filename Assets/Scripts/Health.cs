@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
+    protected int maxHealth = 100;
     [SerializeField]
-    private int currentHealth;
+    protected int currentHealth;
 
-    public event System.Action<float> onHealthChanged = delegate { };
+    public event System.Action<float> OnHealthChanged = delegate { };
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +16,24 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void takeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        onHealthChanged((float)currentHealth / (float)maxHealth);
+        OnHealthChanged((float)currentHealth / (float)maxHealth);
 
         if(currentHealth <= 0)
         {
+            DeathActions();
             Destroy(gameObject);
-            WaveSpanner.EnemiesAlive--;
         }
+    }
+    public virtual void DeathActions()
+    {
+        LevelMoneyManager.instance.AddMoney(gameObject.GetComponent<Enemy>().moneyValue);
+        WaveSpanner.EnemiesAlive--;
+    }
+    public void Revive()
+    {
+        currentHealth = maxHealth;
     }
 }

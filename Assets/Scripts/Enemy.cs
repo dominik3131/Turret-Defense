@@ -6,9 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 2f;
     public int damage = 5;
+    public int moneyValue = 100;
     private bool freezed = false;
     private Transform target;
-
     private int wavePointIndex = 0;
 
     void Start()
