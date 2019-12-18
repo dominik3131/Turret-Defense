@@ -79,6 +79,16 @@ public class Turret : Weapon
         {
             indicator.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        if (BuildManager.instance.SpawnModeEnabled)
+        {
+            rangeSphere.SetActive(true);
+        }
+        else
+        {
+            rangeSphere.SetActive(false);
+        }
+
         if (target == null)
             return;
 
@@ -89,15 +99,6 @@ public class Turret : Weapon
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         fireCooldown();
-
-        if (BuildManager.instance.SpawnModeEnabled)
-        {
-            rangeSphere.SetActive(true);
-            Debug.Log("is active ");
-        } else
-        {
-            rangeSphere.SetActive(false);
-        }
     }
 
     protected virtual void fireCooldown()
