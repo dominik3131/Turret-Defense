@@ -20,8 +20,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
         OnHealthChanged((float)currentHealth / (float)maxHealth);
-
-        if(currentHealth <= 0)
+        if ( currentHealth <= 0 )
         {
             DeathActions();
             Destroy(gameObject);
