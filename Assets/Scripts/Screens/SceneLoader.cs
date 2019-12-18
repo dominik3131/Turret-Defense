@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EasyMobile;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -44,6 +45,11 @@ public class SceneLoader : MonoBehaviour
         LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void ReloadCurrentScene()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     /**
 		loads scene with build index that is equal to sceneIndex using async operation,
 		also sets LoadingImage.fillAmount to progress of async operation
@@ -60,6 +66,8 @@ public class SceneLoader : MonoBehaviour
             LoadingImage.fillAmount = async.progress * 1.11f; //sets filling of image to async progress (multiplied by 1.11 because if async.allowSceneActivation=false, async.progress means fully loaded scene)
             if ( async.progress >= 0.9f )
             { //if scene is already loaded
+                Time.timeScale = 1;
+                Advertising.HideBannerAd();
                 LoadingImage.fillAmount = 1; //show full image
                 async.allowSceneActivation = true; //allow to switch scene
             }

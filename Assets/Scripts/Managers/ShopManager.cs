@@ -27,12 +27,6 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("BEERS", 200);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void BuyNoAds()
     {
         UpdateIndicators();
@@ -47,20 +41,20 @@ public class ShopManager : MonoBehaviour
     }
     private void BuyFirePotions()
     {
-        int beers = PlayerPrefs.GetInt("BEERS");
+        int beers = PlayerPrefs.GetInt("BEERS", 0);
         if ( beers >= 40 )
         {
-            PlayerPrefs.SetInt("FIRE_POTIONS", PlayerPrefs.GetInt("FIRE_POTIONS") + 4);
+            PlayerPrefs.SetInt("FIRE_POTIONS", PlayerPrefs.GetInt("FIRE_POTIONS", 0) + 4);
             PlayerPrefs.SetInt("BEERS", beers - 40);
         }
         UpdateIndicators();
     }
     private void BuyFreezePotions()
     {
-        int beers = PlayerPrefs.GetInt("BEERS");
+        int beers = PlayerPrefs.GetInt("BEERS", 0);
         if ( beers >= 40 )
         {
-            PlayerPrefs.SetInt("FREEZE_POTIONS", PlayerPrefs.GetInt("FREEZE_POTIONS") + 3);
+            PlayerPrefs.SetInt("FREEZE_POTIONS", PlayerPrefs.GetInt("FREEZE_POTIONS", 0) + 3);
             PlayerPrefs.SetInt("BEERS", beers - 40);
         }
         UpdateIndicators();
@@ -70,19 +64,17 @@ public class ShopManager : MonoBehaviour
         foreach ( GameObject gameObject in beerIndicators )
         {
             Text text = gameObject.GetComponent<Text>();
-            text.text = PlayerPrefs.GetInt("BEERS").ToString();
+            text.text = PlayerPrefs.GetInt("BEERS", 0).ToString();
         }
         foreach ( GameObject gameObject in freezePotionIndicators )
         {
             Text text = gameObject.GetComponent<Text>();
-            text.text = PlayerPrefs.GetInt("FREEZE_POTIONS").ToString();
+            text.text = PlayerPrefs.GetInt("FREEZE_POTIONS", 0).ToString();
         }
         foreach ( GameObject gameObject in firePotionIndicators )
         {
             Text text = gameObject.GetComponent<Text>();
-            text.text = PlayerPrefs.GetInt("FIRE_POTIONS").ToString();
+            text.text = PlayerPrefs.GetInt("FIRE_POTIONS", 0).ToString();
         }
     }
-
-
 }
