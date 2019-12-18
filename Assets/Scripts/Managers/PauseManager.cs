@@ -13,6 +13,7 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseCanvas;
     private SceneLoader sceneLoader;
     private AdManager adManager;
+    private bool paused = false;
     void Start()
     {
         sceneLoader = this.gameObject.GetComponent<SceneLoader>();
@@ -25,29 +26,31 @@ public class PauseManager : MonoBehaviour
     }
 
 
-    public void LoadMenu()
+    private void LoadMenu()
     {
         this.sceneLoader.LoadScene(0);
     }
 
-    public void Restart()
+    private void Restart()
     {
         this.sceneLoader.ReloadCurrentScene();
     }
-    public void Resume()
+    private void Resume()
     {
+        paused = false;
         adManager.HideBannerAd();
         Time.timeScale = 1;
         pauseCanvas.SetActive(false);
     }
-    public void Pause()
+    private void Pause()
     {
+        paused = true;
         adManager.ShowBannerAd();
         adManager.ShowInterstitialAd();
         Time.timeScale = 0;
         pauseCanvas.SetActive(true);
     }
-    public void ShowRewardAdForFirePotion()
+    private void ShowRewardAdForFirePotion()
     {
         adManager.ShowRewardedAd();
     }
@@ -65,8 +68,13 @@ public class PauseManager : MonoBehaviour
     // Event handler called when a rewarded ad has completed
     void RewardedAdCompletedHandler(RewardedAdNetwork network, AdLocation location)
     {
-        PlayerPrefs.SetInt("FIRE_POTIONS", PlayerPrefs.GetInt("FIRE_POTIONS", 0) + 1);
-        //TODO fix indicator
-        firePotionButton.GetComponent<Text>().text = PlayerPrefs.GetInt("FIRE_POTIONS", 0).ToString();
+        if ( paused )
+        {
+            int firePotions = PlayerPrefs.GetInt("FIRE_POTIONS", 0) + 1;
+            PlayerPrefs.SetInt("FIRE_POTIONS", firePotions);
+            //TODO fix indicator
+            Text text = firePotionButton.GetComponentInChildren<Text>();
+            text.text = firePotions.ToString();
+        }
     }
 }

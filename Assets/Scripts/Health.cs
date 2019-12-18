@@ -19,9 +19,9 @@ public class Health : MonoBehaviour
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
-        onHealthChanged((float)currentHealth / (float)maxHealth);
+        onHealthChanged(( float )currentHealth / ( float )maxHealth);
 
-        if(currentHealth <= 0)
+        if ( currentHealth <= 0 )
         {
             Destroy(gameObject);
             WaveSpanner.EnemiesAlive--;
