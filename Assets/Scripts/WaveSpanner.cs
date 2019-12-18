@@ -7,6 +7,8 @@ public class WaveSpanner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 
+    public int enemyMore = 0;
+
     public Wave[] waves;
 
     public Transform spawnPoint;
@@ -35,23 +37,26 @@ public class WaveSpanner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         Wave wave = waves[waveNumber];
+        wave.count += enemyMore;
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
-            yield return new WaitForSeconds(wave.rate);
+            System.Console.WriteLine("Enemy created " + i);
+            yield return new WaitForSeconds(1 / wave.rate);
         }
         waveNumber++;
 
         if (waveNumber == waves.Length)
         {
             waveNumber = 0;
+            enemyMore++;
         }
     }
 
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        WaveSpanner.EnemiesAlive++;
+        EnemiesAlive++;
     }
 
     public int getWaveNumber()
