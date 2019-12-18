@@ -38,7 +38,7 @@ public class WaveSpanner : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
-            yield return new WaitForSeconds(1 / wave.rate);
+            yield return new WaitForSeconds(wave.rate);
         }
         waveNumber++;
 
@@ -51,7 +51,7 @@ public class WaveSpanner : MonoBehaviour
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive++;
+        WaveSpanner.EnemiesAlive++;
     }
 
     public int getWaveNumber()
