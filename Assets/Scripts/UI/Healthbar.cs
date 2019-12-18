@@ -12,7 +12,7 @@ public class Healthbar : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentInParent<Health>().onHealthChanged += handleHealthChange;
+        GetComponentInParent<Health>().OnHealthChanged += handleHealthChange;
     }
 
     private void handleHealthChange(float points)

@@ -52,7 +52,8 @@ public class Bullet : MonoBehaviour
             Explosion(target.gameObject);
         } else
         {
-            target.gameObject.GetComponentInChildren<Health>().takeDamage(damage);
+            target.gameObject.GetComponentInChildren<Health>().TakeDamage(damage);
+            Destroy(gameObject);
         }
 
         Destroy(gameObject);
