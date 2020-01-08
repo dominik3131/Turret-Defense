@@ -47,9 +47,14 @@ public class Weapon : MonoBehaviour
     void OnMouseDown()
     {
         Weapon[] selected = FindObjectsOfType<Weapon>().Where(c => c.isSelected).ToArray();
-            if(selected.Any())
-                selected[0].isSelected = false;
-        WeaponManager.instance.selectedWeapon = gameObject;
         isSelected = true;
+        if (selected.Any())
+                selected[0].isSelected = !selected[0].isSelected;
+        if(isSelected)
+            WeaponManager.instance.selectedWeapon = gameObject;
+        else
+            WeaponManager.instance.selectedWeapon = null;
+
+
     }
 }
