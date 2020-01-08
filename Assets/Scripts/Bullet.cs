@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     public void Start()
     {
-        if(explosionPrefab != null && damageRange != 0f)
+        if ( explosionPrefab != null && damageRange != 0f )
         {
             explosionPrefab.transform.localScale = new Vector3(damageRange, damageRange, damageRange);
         }
@@ -44,13 +44,14 @@ public class Bullet : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
-    
+
     void HitTarget()
     {
-        if(damageRange > 0)
+        if ( damageRange > 0 )
         {
             Explosion(target.gameObject);
-        } else
+        }
+        else
         {
             target.gameObject.GetComponentInChildren<Health>().TakeDamage(damage);
             Destroy(gameObject);
@@ -63,12 +64,12 @@ public class Bullet : MonoBehaviour
     {
         Collider[] collidersInRange = Physics.OverlapSphere(enemy.transform.position, damageRange);
 
-        foreach (Collider currentCollider in collidersInRange)
+        foreach ( Collider currentCollider in collidersInRange )
         {
-            if (currentCollider.tag.Equals("Enemy"))
+            if ( currentCollider.tag.Equals("Enemy") )
             {
-                float damagePercent = Vector3.Distance(currentCollider.gameObject.transform.position, transform.position) / damageRange * 5.0f ;
-                currentCollider.gameObject.GetComponentInChildren<Health>().takeDamage(damage * damagePercent);
+                float damagePercent = Vector3.Distance(currentCollider.gameObject.transform.position, transform.position) / damageRange * 5.0f;
+                currentCollider.gameObject.GetComponentInChildren<Health>().TakeDamage(damage * damagePercent);
                 Instantiate(explosionPrefab, transform.position, transform.rotation);
                 Debug.Log(currentCollider.gameObject.transform.position);
             }

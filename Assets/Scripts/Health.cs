@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     protected int maxHealth = 100;
     [SerializeField]
-    protected int currentHealth;
+    protected float currentHealth;
 
     public event System.Action<float> OnHealthChanged = delegate { };
 
@@ -16,10 +16,10 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public virtual void TakeDamage(int amount)
+    public virtual void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        OnHealthChanged((float)currentHealth / (float)maxHealth);
+        OnHealthChanged(( float )currentHealth / ( float )maxHealth);
         if ( currentHealth <= 0 )
         {
             DeathActions();

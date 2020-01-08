@@ -22,24 +22,24 @@ public class LaserTurret : Turret
     public void Update()
     {
         base.Update();
-        if (target == null)
+        if ( target == null )
         {
             laserLine.enabled = false;
             currentDamage = minDamage;
         }
-        
+
     }
 
     protected override void Shoot()
     {
-        if (!laserLine.enabled)
+        if ( !laserLine.enabled )
         {
             laserLine.enabled = true;
         }
         laserLine.SetPosition(0, firePoint.position);
         laserLine.SetPosition(1, target.position);
         target.gameObject.GetComponentInChildren<Enemy>().decreaseSpeed(2f);
-        target.gameObject.GetComponentInChildren<Health>().takeDamage( currentDamage< maxDamage ? currentDamage * Time.deltaTime*100 : maxDamage);
+        target.gameObject.GetComponentInChildren<Health>().TakeDamage(currentDamage < maxDamage ? currentDamage * Time.deltaTime * 100 : maxDamage);
     }
 
     protected override void fireCooldown()
