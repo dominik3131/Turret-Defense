@@ -20,6 +20,7 @@ public class WaveSpanner : MonoBehaviour
 
     void Update()
     {
+        //int a = 4;
         if (EnemiesAlive > 0)
         {
             return;
@@ -28,7 +29,7 @@ public class WaveSpanner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
-            return;
+            //return;
         }
 
         countdown -= Time.deltaTime;
