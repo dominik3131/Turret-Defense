@@ -2044,7 +2044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingCanvasGroup: {fileID: 33163355}
-  LoadingImage: {fileID: 0}
+  LoadingImage: {fileID: 253937148}
 --- !u!1 &836358112
 GameObject:
   m_ObjectHideFlags: 0
