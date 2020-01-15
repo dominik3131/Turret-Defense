@@ -8,5 +8,9 @@ public class CastleHealth : Health
     {
         GameOverManager.instance.Die();
     }
+    public void Revive()
+    {
+        currentHealth = maxHealth;
+    }
 
 }

@@ -23,16 +23,13 @@ public class Health : MonoBehaviour
         if ( currentHealth <= 0 )
         {
             DeathActions();
-            Destroy(gameObject);
         }
     }
     public virtual void DeathActions()
     {
+        Destroy(gameObject);
         LevelMoneyManager.instance.AddMoney(gameObject.GetComponent<Enemy>().moneyValue);
         WaveSpanner.EnemiesAlive--;
     }
-    public void Revive()
-    {
-        currentHealth = maxHealth;
-    }
+
 }
