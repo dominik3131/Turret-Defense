@@ -17,6 +17,7 @@ public class GameOverManager : MonoBehaviour
     private bool died = false;
     private void Awake()
     {
+        Time.timeScale = 1;
         if ( instance != null )
         {
             return;

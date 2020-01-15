@@ -862,7 +862,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Revive for wathing ad
+  m_Text: Revive for watching ad
 --- !u!222 &150022756
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1060,6 +1060,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6568448124411367854}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &197671949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197671948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b21e7c6c6a8ea0449d2cfc9526884e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 0
 --- !u!1 &197825278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5962,7 +5976,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: 'Back to
+
+    menu'
 --- !u!222 &1175626519
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10015,5 +10031,6 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6568448125527912664, guid: e0c08c1ea42b54a43a2e60e095ce441a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0c08c1ea42b54a43a2e60e095ce441a, type: 3}
