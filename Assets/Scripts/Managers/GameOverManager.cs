@@ -17,6 +17,7 @@ public class GameOverManager : MonoBehaviour
     private bool died = false;
     private void Awake()
     {
+        Time.timeScale = 1;
         if ( instance != null )
         {
             return;
@@ -66,13 +67,14 @@ public class GameOverManager : MonoBehaviour
     {
         if ( died )
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach ( GameObject enemy in enemies )
             {
                 GameObject.Destroy(enemy);
             }
-            //TODO uncoment when Revive() is added
-            //castle.GetComponent<Health>().Revive();
+            castle.GetComponent<CastleHealth>().Revive();
+            //TODO uncomment later
+            //gameObject.GetComponent<WaveSpanner>().removeAllEnemies();
             died = false;
             gameOverCanvas.SetActive(false);
             Time.timeScale = 1;

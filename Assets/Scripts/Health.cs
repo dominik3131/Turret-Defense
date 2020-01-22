@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    protected int maxHealth = 100;
+    public float maxHealth = 100;
     [SerializeField]
     protected float currentHealth;
 
@@ -23,16 +23,13 @@ public class Health : MonoBehaviour
         if ( currentHealth <= 0 )
         {
             DeathActions();
-            Destroy(gameObject);
         }
     }
     public virtual void DeathActions()
     {
+        Destroy(gameObject);
         LevelMoneyManager.instance.AddMoney(gameObject.GetComponent<Enemy>().moneyValue);
         WaveSpanner.EnemiesAlive--;
     }
-    public void Revive()
-    {
-        currentHealth = maxHealth;
-    }
+
 }

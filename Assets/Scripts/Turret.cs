@@ -74,18 +74,11 @@ public class Turret : Weapon
         if (isSelected)
         {
             indicator.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        else
-        {
-            indicator.GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        if (BuildManager.instance.SpawnModeEnabled)
-        {
             rangeSphere.SetActive(true);
         }
         else
         {
+            indicator.GetComponent<SpriteRenderer>().enabled = false;
             rangeSphere.SetActive(false);
         }
 

@@ -6,7 +6,11 @@ public class CastleHealth : Health
 {
     public override void DeathActions()
     {
-        //GameOverManage.instance.Die();
+        GameOverManager.instance.Die();
+    }
+    public void Revive()
+    {
+        currentHealth = maxHealth;
     }
 
 }

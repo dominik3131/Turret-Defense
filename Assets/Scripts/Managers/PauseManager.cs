@@ -14,6 +14,7 @@ public class PauseManager : MonoBehaviour
     private SceneLoader sceneLoader;
     private AdManager adManager;
     private bool paused = false;
+    private float lastTimeScale;
     void Start()
     {
         sceneLoader = this.gameObject.GetComponent<SceneLoader>();
@@ -39,7 +40,7 @@ public class PauseManager : MonoBehaviour
     {
         paused = false;
         adManager.HideBannerAd();
-        Time.timeScale = 1;
+        Time.timeScale = lastTimeScale;
         pauseCanvas.SetActive(false);
     }
     private void Pause()
@@ -47,6 +48,7 @@ public class PauseManager : MonoBehaviour
         paused = true;
         adManager.ShowBannerAd();
         adManager.ShowInterstitialAd();
+        lastTimeScale = Time.timeScale;
         Time.timeScale = 0;
         pauseCanvas.SetActive(true);
     }

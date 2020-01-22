@@ -17,7 +17,10 @@ public class WaveSpanner : MonoBehaviour
     private float countdown = 5f;
 
     private int waveNumber = 0;
-
+    private void Awake()
+    {
+        EnemiesAlive = 0;
+    }
     void Update()
     {
         //int a = 4;
