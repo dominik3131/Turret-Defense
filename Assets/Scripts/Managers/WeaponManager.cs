@@ -22,6 +22,7 @@ public class WeaponManager : MonoBehaviour
     }
     public void SellSelectedWeapon()
     {
+        if(instance.selectedWeapon != null)
         instance.selectedWeapon.GetComponent<Weapon>().Sell();
     }
 }
