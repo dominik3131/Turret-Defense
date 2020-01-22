@@ -21,7 +21,9 @@ public class Enemy : MonoBehaviour
     {
         if (!freezed)
         {
+
             Vector3 direction = target.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
             transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
 
             if (Vector3.Distance(transform.position, target.position) <= 0.4f)
