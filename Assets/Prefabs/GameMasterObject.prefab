@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7835352910104688203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7835352910104688245}
+  - component: {fileID: 7835352910104688244}
+  - component: {fileID: 7835352910104688246}
+  - component: {fileID: 7835352910104688247}
+  - component: {fileID: 7835352910104688240}
+  - component: {fileID: 7835352910104688241}
+  - component: {fileID: 7835352910104688242}
+  - component: {fileID: 7835352910104688243}
+  - component: {fileID: 7835352910104688252}
+  - component: {fileID: 7835352910104688253}
+  - component: {fileID: 7835352910104688254}
+  m_Layer: 0
+  m_Name: GameMasterObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7835352910104688245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6583953, y: -4.014414, z: 9.768637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7835352910104688244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cdc74ed6eb3c243b3dbaf7cf293e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMore: 0
+  waves:
+  - enemy: {fileID: 2501831457785627311, guid: 9c5f03b80be28af42aa445e7253724db, type: 3}
+    count: 3
+    rate: 1
+  - enemy: {fileID: 100104, guid: de5eab967c5239c45b75177c02c52b8a, type: 3}
+    count: 4
+    rate: 1
+  - enemy: {fileID: 100008, guid: a9a1333964c1bd94d855c53081841cb1, type: 3}
+    count: 2
+    rate: 1
+  spawnPoint: {fileID: 0}
+  timeBetweenWaves: 5
+--- !u!114 &7835352910104688246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2047296a07a52a14a9d44c6ddb1d8211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnModeEnabled: 0
+  weaponTypes:
+  - {fileID: 8807312106607699956, guid: 37c14184bafe5d440beb944c8b166d28, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  standardTurretPrefab: {fileID: 8807312106607699956, guid: 37c14184bafe5d440beb944c8b166d28,
+    type: 3}
+--- !u!114 &7835352910104688247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbac0e72eecb124eb2510c0889830a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedWeapon: {fileID: 0}
+--- !u!114 &7835352910104688240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6b02547c988cd40919710dc9061933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireButton: {fileID: 0}
+  freezeButton: {fileID: 0}
+  overlay: {fileID: 0}
+  firePotionDamage: 100
+  freezeTime: 2.5
+--- !u!114 &7835352910104688241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf05416285ef7f49bc4313936eed23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoney: 5000
+  textDisplayText: {fileID: 0}
+--- !u!114 &7835352910104688242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dfb0c26cd43ab42b09338421cd252b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resumeButton: {fileID: 0}
+  pauseButton: {fileID: 0}
+  restartButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  potionForAdButton: {fileID: 0}
+  firePotionButton: {fileID: 0}
+  pauseCanvas: {fileID: 0}
+--- !u!114 &7835352910104688243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58fd146e91ca9e40bdee8a3c133cefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingCanvasGroup: {fileID: 0}
+  LoadingImage: {fileID: 0}
+--- !u!114 &7835352910104688252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f9eb2f301cf7f47a3dbf255c5ca844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7835352910104688253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb65e19170ea9564fb4e2968c77f0d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reviveButton: {fileID: 0}
+  restartButton: {fileID: 0}
+  menuButton: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
+  castle: {fileID: 0}
+--- !u!114 &7835352910104688254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835352910104688203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557a93ec0bef6ad4f91aed3847692782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastForwardButton: {fileID: 0}
