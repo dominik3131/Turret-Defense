@@ -3470,6 +3470,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1404219335}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1413577638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2991616361394538442, guid: 4f76aebc05892844fbd8acee008866c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2991616359692381479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1416082749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5192,16 +5204,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2991616360033667511, guid: 4f76aebc05892844fbd8acee008866c1,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1709779124}
     - target: {fileID: 2991616361270120455, guid: 4f76aebc05892844fbd8acee008866c1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 913961699}
+    - target: {fileID: 2991616360033667511, guid: 4f76aebc05892844fbd8acee008866c1,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1709779124}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f76aebc05892844fbd8acee008866c1, type: 3}
 --- !u!1001 &6568448124411367854
@@ -5451,5 +5463,22 @@ PrefabInstance:
       propertyPath: fastForwardButton
       value: 
       objectReference: {fileID: 978656095}
+    - target: {fileID: 7835352910104688246, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: weaponTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 4292486545038637887, guid: 4dcc4cf641dad334f9add8571f573ed7,
+        type: 3}
+    - target: {fileID: 7835352910104688246, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: weaponTypes.Array.data[2]
+      value: 
+      objectReference: {fileID: 6713098669305621155, guid: 9e7e5aef7b7ffc64099cf3d59454fa23,
+        type: 3}
+    - target: {fileID: 7835352910104688241, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: textDisplayText
+      value: 
+      objectReference: {fileID: 1413577638}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d73698903abe1e4bb5287f459c56156, type: 3}
