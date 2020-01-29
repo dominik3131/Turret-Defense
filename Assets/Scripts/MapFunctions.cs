@@ -25,15 +25,19 @@ public class MapFunctions : MonoBehaviour
     }
     private void SetNodesColor(Color color)
     {
+       
         Transform[] table = transform.GetComponentsInChildren<Transform>();
+        Debug.Log("name" + NodePrefab.name);
         foreach (Transform obj in table)
         {
+            Debug.Log(obj.name.ToString());
             if (obj.name.ToString().Contains(NodePrefab.name))
             {
                 
                 if (!obj.GetComponent<Node>().canNotSpawnHere)
                 {
                     obj.GetComponent<Renderer>().material.color = color;
+                    Debug.Log("kolor");
                 }
 
             }

@@ -18,11 +18,12 @@ public class WeaponManager : MonoBehaviour
 
     public void UpgradeSelectedWeapon()
     {
-        instance.selectedWeapon.GetComponent<Weapon>().Upgrade();
+        if (instance.selectedWeapon != null)
+            instance.selectedWeapon.GetComponent<Weapon>().Upgrade();
     }
     public void SellSelectedWeapon()
     {
         if(instance.selectedWeapon != null)
-        instance.selectedWeapon.GetComponent<Weapon>().Sell();
+         instance.selectedWeapon.GetComponent<Weapon>().Sell();
     }
 }

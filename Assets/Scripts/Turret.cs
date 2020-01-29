@@ -123,13 +123,15 @@ public class Turret : Weapon
     public override void UpgradeLook()
     {
         base.UpgradeLook();
-        gameObject.transform.localScale += new Vector3((float)0.1, (float)0.1, (float)0.1);
+        Vector3 vec = gameObject.transform.localScale;
+        gameObject.transform.localScale = new Vector3(vec.x * (float)1.1, vec.y*(float)1.1, vec.z*(float)1.1);
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers)
         {
             foreach (Material m in r.materials)
             {
                 if (m.name != "Sprites-Default")
+                    Debug.Log("upgrade");
                     m.color += new Color(0.44f, 0.1f, 0.1f);
             }
         }
