@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b21e7c6c6a8ea0449d2cfc9526884e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 100
   currentHealth: 0
 --- !u!225 &208468899 stripped
 CanvasGroup:
@@ -5373,6 +5373,31 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 435263027}
+    - target: {fileID: 7835352910104688244, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: waves.Array.data[1].startingWaved
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835352910104688244, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: waves.Array.data[2].startingWaved
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835352910104688244, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: waves.Array.data[2].spawnProbability
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835352910104688244, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: waves.Array.data[1].spawnProbability
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835352910104688244, guid: 1d73698903abe1e4bb5287f459c56156,
+        type: 3}
+      propertyPath: waves.Array.data[0].spawnProbability
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7835352910104688240, guid: 1d73698903abe1e4bb5287f459c56156,
         type: 3}
       propertyPath: fireButton

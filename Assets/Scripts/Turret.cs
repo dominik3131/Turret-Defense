@@ -143,4 +143,10 @@ public class Turret : Weapon
         bulletPrefab.GetComponent<Bullet>().damage += level;  
     }
 
+    public override void Sell()
+    {
+        base.Sell();
+        rangeSphere.SetActive(false);
+    }
+
 }

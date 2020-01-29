@@ -73,8 +73,7 @@ public class GameOverManager : MonoBehaviour
                 GameObject.Destroy(enemy);
             }
             castle.GetComponent<CastleHealth>().Revive();
-            //TODO uncomment later
-            //gameObject.GetComponent<WaveSpanner>().removeAllEnemies();
+            gameObject.GetComponent<WaveSpanner>().removeAllEnemies();
             died = false;
             gameOverCanvas.SetActive(false);
             Time.timeScale = 1;

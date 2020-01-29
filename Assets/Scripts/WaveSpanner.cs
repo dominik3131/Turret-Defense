@@ -1,30 +1,25 @@
 ﻿using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpanner : MonoBehaviour
 {
-    public static int EnemiesAlive = 0;
+    public int enemiesInWave = 2;
+    public static int enemiesAlive = 0;
 
-    public int enemyMore = 0;
-
-    public Wave[] waves;
-
+    public List<Wave> waves;
     public Transform spawnPoint;
-
     public float timeBetweenWaves = 8f;
-    private float countdown = 5f;
 
+    private float countdown = 5f;
     private int waveNumber = 0;
     private void Awake()
     {
-        EnemiesAlive = 0;
+        enemiesAlive = 0;
     }
     void Update()
     {
-        //int a = 4;
-        if (EnemiesAlive > 0)
+        if (enemiesAlive > 0)
         {
             return;
         }
@@ -32,7 +27,6 @@ public class WaveSpanner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
-            //return;
         }
 
         countdown -= Time.deltaTime;
@@ -40,31 +34,43 @@ public class WaveSpanner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        Wave wave = waves[waveNumber];
-        wave.count += enemyMore;
-        for (int i = 0; i < wave.count; i++)
+        float posibility = Random.Range(0f, 1f);
+        List<Wave> possibleWaves = waves.FindAll(wave => 
+        wave.startingWaved <= waveNumber && wave.spawnProbability >= posibility
+        );
+
+        for (int i = 0; i < enemiesInWave; i++)
         {
+            int index = Random.Range(0, possibleWaves.Count);
+            Wave wave = possibleWaves[index];
             SpawnEnemy(wave.enemy);
-            System.Console.WriteLine("Enemy created " + i);
+            if (wave.spawnProbability <= 1.0f) {
+                wave.spawnProbability += 0.05f;
+            }
             yield return new WaitForSeconds(1 / wave.rate);
         }
-        waveNumber++;
 
-        if (waveNumber == waves.Length)
+        waveNumber++;
+        if (waveNumber % 3 == 0)
         {
-            waveNumber = 0;
-            enemyMore++;
+            enemiesInWave += 1;
         }
     }
 
     void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        EnemiesAlive++;
+        enemiesAlive++;
     }
 
     public int getWaveNumber()
     {
         return waveNumber;
     }
+
+    public void removeAllEnemies()
+    {
+        enemiesAlive = 0;
+    }
+
 }

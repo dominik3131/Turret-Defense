@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         if (wavePointIndex >= Waypoints.points.Length - 1)
         {
             Destroy(gameObject);
-            WaveSpanner.EnemiesAlive--;
+            WaveSpanner.enemiesAlive--;
             return;
         }
         wavePointIndex++;
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
 
     public void decreaseSpeed(float slowDown)
     {
-        speed = initialSpeed - slowDown;
+        speed = initialSpeed * slowDown;
     }
 
     public void Freeze()

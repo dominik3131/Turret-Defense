@@ -363,10 +363,11 @@ MonoBehaviour:
   firePoint: {fileID: 4658209128849875171}
   rangeSphere: {fileID: 7866011706980096377, guid: 8d03fef2fc22b5e4683723b65fcab4b1,
     type: 3}
-  maxDamage: 4
+  maxDamage: 2
   minDamage: 0.1
   slowdown: 1
   laserLine: {fileID: 4506563173059487487}
+  cooldownPercentage: 80
 --- !u!120 &4506563173059487487
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
     {
 
     }
-    public void Sell()
+    virtual public void Sell()
     {
         LevelMoneyManager.instance.AddMoney((int) price/2);
         //Debug.Log(gameObject.name + " sold!");

@@ -485,8 +485,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.1941376, z: 1}
+  m_Center: {x: 0, y: 0.35591894, z: 0}
 --- !u!114 &7675558168500480402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,11 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f968630c9fd156e4f829b1cee8603e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-  speed: 4
-  initialSpeed: 4
-
+  initialSpeed: 1.5
   damage: 5
+  moneyValue: 10
 --- !u!114 &769431099482748776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,11 +2028,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2501831457785405071}
     m_Modifications:
-    - target: {fileID: 4966055359990840267, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
-        type: 3}
-      propertyPath: m_Name
-      value: healthbar
-      objectReference: {fileID: 0}
     - target: {fileID: 7030362841694578987, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2139,6 +2132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966055359990840267, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
+        type: 3}
+      propertyPath: m_Name
+      value: healthbar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d21be1ab6ca6f4f9f906a6492b2eba, type: 3}
