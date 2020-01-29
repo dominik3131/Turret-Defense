@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     {
         Destroy(gameObject);
         LevelMoneyManager.instance.AddMoney(gameObject.GetComponent<Enemy>().moneyValue);
-        WaveSpanner.EnemiesAlive--;
+        WaveSpanner.enemiesAlive--;
     }
 
 }

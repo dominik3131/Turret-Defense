@@ -7,8 +7,8 @@ public class LaserTurret : Turret
     [Header("Laser Atrributes")]
     public float maxDamage = 4f;
     public float minDamage = 0.1f;
-    public float slowdown = 1f;
     public LineRenderer laserLine;
+    public float slowdownPercentage;
 
     private float currentDamage;
 
@@ -38,7 +38,8 @@ public class LaserTurret : Turret
         }
         laserLine.SetPosition(0, firePoint.position);
         laserLine.SetPosition(1, target.position);
-        target.gameObject.GetComponentInChildren<Enemy>().decreaseSpeed(2f);
+
+        target.gameObject.GetComponentInChildren<Enemy>().decreaseSpeed(slowdownPercentage / 100.0f);
         target.gameObject.GetComponentInChildren<Health>().TakeDamage(currentDamage < maxDamage ? currentDamage * Time.deltaTime * 100 : maxDamage);
     }
 
