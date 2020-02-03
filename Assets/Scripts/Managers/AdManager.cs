@@ -22,21 +22,19 @@ public class AdManager : MonoBehaviour
     }
     public void ShowBannerAd()
     {
-        if ( AreAdsEnabled() )
-        {
-            Advertising.ShowBannerAd(BannerAdPosition.Bottom);
-        }
+
+        Advertising.ShowBannerAd(BannerAdPosition.Bottom);
     }
     public void ShowInterstitialAd()
     {
-        if ( AreAdsEnabled() && Advertising.IsInterstitialAdReady() )
+        if ( Advertising.IsInterstitialAdReady() )
         {
             Advertising.ShowInterstitialAd();
         }
     }
     public void ShowRewardedAd()
     {
-        if ( AreAdsEnabled() && Advertising.IsRewardedAdReady() )
+        if ( Advertising.IsRewardedAdReady() )
         {
             Advertising.ShowRewardedAd();
         }
@@ -46,8 +44,5 @@ public class AdManager : MonoBehaviour
         Advertising.HideBannerAd();
 
     }
-    private bool AreAdsEnabled()
-    {
-        return !PlayerPrefs.GetString("ADS_DISABLED", "NON").Equals("DISABLED");
-    }
+
 }

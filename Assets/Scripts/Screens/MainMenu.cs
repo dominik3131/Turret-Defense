@@ -10,9 +10,10 @@ public class MainMenu : MonoBehaviour
     public Button newGameButton;
     public Button creditsButton;
     public Button shopButton;
-    public Button levelsButton;
+    public Button levelSelectButton;
     public Button exitButton;
     public List<Button> backToMenuButtons;
+    public List<Button> levelButtons;
 
     /** canvas group that holds game logo that is shown at game lauch */
     public CanvasGroup logoCanvasGroup;
@@ -42,8 +43,13 @@ public class MainMenu : MonoBehaviour
         exitButton.onClick.AddListener(Exit);
         creditsButton.onClick.AddListener(ShowCredits);
         shopButton.onClick.AddListener(ShowShop);
-        levelsButton.onClick.AddListener(ShowLevels);
+        levelSelectButton.onClick.AddListener(ShowLevels);
         backToMenuButtons.ForEach(button => button.onClick.AddListener(ShowMenu));
+        for ( int i = 0; i < levelButtons.Count; i++ )
+        {
+            var j = i;
+            levelButtons[i].onClick.AddListener(() => sceneLoader.LoadScene(j + 1));
+        }
     }
     /** when object is awaken deactivates all canvas in scene and starts animation of game logo and later shows menu */
     public void Awake()

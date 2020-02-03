@@ -9,6 +9,7 @@ TagManager:
   - BeerIndicator
   - FirePotionIndicator
   - FreezePotionIndicator
+  - Castle
   layers:
   - Default
   - TransparentFX

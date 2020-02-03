@@ -33,11 +33,12 @@ public class Turret : Weapon
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
 
         rangeSphere = Instantiate(rangeSphere, transform.position, partToRotate.rotation);
-        rangeSphere.transform.localScale = new Vector3(range, range, range);
+        rangeSphere.transform.localScale = new Vector3(2 * range, 0.1f, 2 * range);
 
         Transform[] ts = gameObject.GetComponentsInChildren<Transform>();
-        foreach (Transform t in ts)
-            if (t.gameObject.name == "Indicator") {
+        foreach ( Transform t in ts )
+            if ( t.gameObject.name == "Indicator" )
+            {
                 indicator = t.gameObject;
             }
     }
@@ -47,17 +48,17 @@ public class Turret : Weapon
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
-        foreach (GameObject enemy in enemies)
+        foreach ( GameObject enemy in enemies )
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            if ( distanceToEnemy < shortestDistance )
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if ( nearestEnemy != null && shortestDistance <= range )
         {
             target = nearestEnemy.transform;
         }
@@ -71,7 +72,7 @@ public class Turret : Weapon
     // Update is called once per frame
     public void Update()
     {
-        if (isSelected)
+        if ( isSelected )
         {
             indicator.GetComponent<SpriteRenderer>().enabled = true;
             rangeSphere.SetActive(true);
@@ -82,7 +83,7 @@ public class Turret : Weapon
             rangeSphere.SetActive(false);
         }
 
-        if (target == null)
+        if ( target == null )
             return;
 
         //Target lock on
@@ -96,7 +97,7 @@ public class Turret : Weapon
 
     protected virtual void fireCooldown()
     {
-        if (fireCountdown <= 0f)
+        if ( fireCountdown <= 0f )
         {
             Shoot();
             fireCountdown = 1f / fireRate;
@@ -107,10 +108,10 @@ public class Turret : Weapon
 
     protected virtual void Shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = ( GameObject )Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
-        if (bullet != null)
+        if ( bullet != null )
             bullet.Seek(target);
     }
 
@@ -124,15 +125,15 @@ public class Turret : Weapon
     {
         base.UpgradeLook();
         Vector3 vec = gameObject.transform.localScale;
-        gameObject.transform.localScale = new Vector3(vec.x * (float)1.1, vec.y*(float)1.1, vec.z*(float)1.1);
+        gameObject.transform.localScale = new Vector3(vec.x * ( float )1.1, vec.y * ( float )1.1, vec.z * ( float )1.1);
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
-        foreach (Renderer r in renderers)
+        foreach ( Renderer r in renderers )
         {
-            foreach (Material m in r.materials)
+            foreach ( Material m in r.materials )
             {
-                if (m.name != "Sprites-Default")
+                if ( m.name != "Sprites-Default" )
                     Debug.Log("upgrade");
-                    m.color += new Color(0.44f, 0.1f, 0.1f);
+                m.color += new Color(0.44f, 0.1f, 0.1f);
             }
         }
 
@@ -142,7 +143,7 @@ public class Turret : Weapon
     {
         base.UpgradeActivity();
         range += level;
-        bulletPrefab.GetComponent<Bullet>().damage += level;  
+        bulletPrefab.GetComponent<Bullet>().damage += level;
     }
 
     public override void Sell()

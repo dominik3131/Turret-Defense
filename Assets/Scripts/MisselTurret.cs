@@ -5,14 +5,14 @@ using UnityEngine;
 public class MisselTurret : Turret
 {
     public GameObject missleInCannon;
-    
-    private float loadMissleCounter=0.3f;
 
-    public void Update()
+    private float loadMissleCounter = 0.3f;
+
+    public new void Update()
     {
         base.Update();
         loadMissleCounter -= Time.deltaTime;
-        if (loadMissleCounter < 0f)
+        if ( loadMissleCounter < 0f )
         {
             missleInCannon.SetActive(true);
         }

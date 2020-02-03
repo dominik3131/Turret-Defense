@@ -177,7 +177,7 @@ Animation:
   m_GameObject: {fileID: 100008}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: 35b9df0d8ef0ab44abeb1b0a9e586310, type: 3}
+  m_Animation: {fileID: 7400000, guid: e1345f231bddd7a488397fb5ca71c0cb, type: 3}
   m_Animations:
   - {fileID: 7400002, guid: 35b9df0d8ef0ab44abeb1b0a9e586310, type: 3}
   - {fileID: 7400000, guid: 35b9df0d8ef0ab44abeb1b0a9e586310, type: 3}
@@ -233,6 +233,7 @@ MonoBehaviour:
   initialSpeed: 1
   damage: 10
   moneyValue: 20
+  healthbar: {fileID: 399273112813324078}
 --- !u!114 &-3764572697987847058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1858,6 +1859,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400008}
     m_Modifications:
+    - target: {fileID: 4966055359990840267, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
+        type: 3}
+      propertyPath: m_Name
+      value: healthbar
+      objectReference: {fileID: 0}
     - target: {fileID: 7030362841694578987, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1963,13 +1969,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4966055359990840267, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
-        type: 3}
-      propertyPath: m_Name
-      value: healthbar
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d21be1ab6ca6f4f9f906a6492b2eba, type: 3}
+--- !u!1 &399273112813324078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4966055359990840267, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
+    type: 3}
+  m_PrefabInstance: {fileID: 4710899136884899045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2373577391042221518 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7030362841694578987, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,

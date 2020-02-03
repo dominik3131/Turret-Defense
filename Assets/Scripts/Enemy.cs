@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int wavePointIndex = 0;
     private float speed;
-
+    public GameObject healthbar;
     void Start()
     {
         target = Waypoints.points[0];
@@ -19,14 +19,17 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        if (!freezed)
+        if ( !freezed )
         {
-
             Vector3 direction = target.position - transform.position;
             transform.rotation = Quaternion.LookRotation(direction);
             transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            if ( healthbar )
+            {
+                healthbar.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
+            }
 
-            if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+            if ( Vector3.Distance(transform.position, target.position) <= 0.4f )
             {
                 getNextWaypoint();
             }
@@ -35,10 +38,11 @@ public class Enemy : MonoBehaviour
     }
     void getNextWaypoint()
     {
-        if (wavePointIndex >= Waypoints.points.Length - 1)
+        if ( wavePointIndex >= Waypoints.points.Length - 1 )
         {
-            Destroy(gameObject);
+            CastleHealth.instance.TakeDamage(damage);
             WaveSpanner.enemiesAlive--;
+            Destroy(gameObject);
             return;
         }
         wavePointIndex++;
@@ -48,7 +52,7 @@ public class Enemy : MonoBehaviour
 
     public void decreaseSpeed(float slowDown)
     {
-        speed = initialSpeed * slowDown;
+        speed = initialSpeed - initialSpeed * slowDown;
     }
 
     public void Freeze()
