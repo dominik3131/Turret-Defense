@@ -106,4 +106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
-  impactEffect: {fileID: 0}
+  damage: 8
+  damageRange: 0
+  explosionPrefab: {fileID: 0}

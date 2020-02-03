@@ -365,9 +365,8 @@ MonoBehaviour:
     type: 3}
   maxDamage: 2
   minDamage: 0.1
-  slowdown: 1
   laserLine: {fileID: 4506563173059487487}
-  cooldownPercentage: 80
+  slowdownPercentage: 50
 --- !u!120 &4506563173059487487
 LineRenderer:
   m_ObjectHideFlags: 0

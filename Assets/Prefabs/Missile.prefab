@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 40
+  damage: 30
   damageRange: 1
   explosionPrefab: {fileID: 5681562302117412702, guid: 95d9b7b4e2215424c8fdd9927805c797,
     type: 3}

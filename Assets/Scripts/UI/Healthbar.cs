@@ -25,7 +25,7 @@ public class Healthbar : MonoBehaviour
         float photoFill = foreground.fillAmount;
         float elapsed = 0f;
 
-        while(elapsed < lossingLifeAnimation)
+        while ( elapsed < lossingLifeAnimation )
         {
             elapsed += Time.deltaTime;
             foreground.fillAmount = Mathf.Lerp(photoFill, damage, elapsed / lossingLifeAnimation);

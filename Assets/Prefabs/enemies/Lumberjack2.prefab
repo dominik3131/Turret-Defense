@@ -2007,6 +2007,7 @@ MonoBehaviour:
   initialSpeed: 4
   damage: 2
   moneyValue: 15
+  healthbar: {fileID: 502579922983892714}
 --- !u!114 &1207166506525748019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2140,6 +2141,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d21be1ab6ca6f4f9f906a6492b2eba, type: 3}
+--- !u!1 &502579922983892714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4966055359990840267, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,
+    type: 3}
+  m_PrefabInstance: {fileID: 4761286459957120289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2559066097375552522 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7030362841694578987, guid: c9d21be1ab6ca6f4f9f906a6492b2eba,

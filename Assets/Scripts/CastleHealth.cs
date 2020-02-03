@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class CastleHealth : Health
 {
+    public static CastleHealth instance;
+    private void Awake()
+    {
+        if ( instance != null )
+        {
+            return;
+        }
+        instance = this;
+    }
     public override void DeathActions()
     {
         GameOverManager.instance.Die();

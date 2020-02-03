@@ -10,7 +10,7 @@ public class TargetObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameObject == null && !ReferenceEquals(gameObject,null))
+        if ( gameObject == null && !ReferenceEquals(gameObject, null) )
         {
             showLossingScreen();
         }
@@ -18,9 +18,9 @@ public class TargetObject : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if ( collision.gameObject.tag == "Enemy" )
         {
-            GetComponent<Health>().TakeDamage(collision.gameObject.GetComponent<Enemy>().damage);
+            //GetComponent<Health>().TakeDamage(collision.gameObject.GetComponent<Enemy>().damage);
         }
     }
 

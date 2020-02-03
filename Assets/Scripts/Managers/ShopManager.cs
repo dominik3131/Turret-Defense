@@ -1,26 +1,24 @@
-﻿using System.Collections;
+﻿using EasyMobile;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    public Button fiftyBeersButton;
-    public Button oneHundredBeersButton;
-    public Button noAdsButton;
+    public Button beersButton;
     public Button firePotionsButton;
     public Button freezePotionButton;
     public GameObject[] beerIndicators;
     public GameObject[] firePotionIndicators;
     public GameObject[] freezePotionIndicators;
+    public AdManager adManager;
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateIndicators();
-        fiftyBeersButton.onClick.AddListener(BuyFiftyBeers);
-        oneHundredBeersButton.onClick.AddListener(BuyOneHundredBeers);
-        noAdsButton.onClick.AddListener(BuyNoAds);
+        beersButton.onClick.AddListener(BuyNoAds);
         firePotionsButton.onClick.AddListener(BuyFirePotions);
         freezePotionButton.onClick.AddListener(BuyFreezePotions);
         //TODO remove later
@@ -29,16 +27,9 @@ public class ShopManager : MonoBehaviour
 
     private void BuyNoAds()
     {
-        UpdateIndicators();
+        adManager.ShowRewardedAd();
     }
-    private void BuyFiftyBeers()
-    {
-        UpdateIndicators();
-    }
-    private void BuyOneHundredBeers()
-    {
-        UpdateIndicators();
-    }
+
     private void BuyFirePotions()
     {
         int beers = PlayerPrefs.GetInt("BEERS", 0);
@@ -76,5 +67,11 @@ public class ShopManager : MonoBehaviour
             Text text = gameObject.GetComponent<Text>();
             text.text = PlayerPrefs.GetInt("FIRE_POTIONS", 0).ToString();
         }
+    }
+    void RewardedAdCompletedHandler(RewardedAdNetwork network, AdLocation location)
+    {
+        int beers = PlayerPrefs.GetInt("BEERS");
+        PlayerPrefs.SetInt("BEERS", beers + 15);
+        UpdateIndicators();
     }
 }

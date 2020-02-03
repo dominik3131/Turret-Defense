@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        OnHealthChanged(( float )currentHealth / ( float )maxHealth);
     }
 
     public virtual void TakeDamage(float amount)
@@ -27,9 +28,10 @@ public class Health : MonoBehaviour
     }
     public virtual void DeathActions()
     {
-        Destroy(gameObject);
         LevelMoneyManager.instance.AddMoney(gameObject.GetComponent<Enemy>().moneyValue);
         WaveSpanner.enemiesAlive--;
+        WaveSpanner.killedEnemies++;
+        Destroy(gameObject);
     }
 
 }
