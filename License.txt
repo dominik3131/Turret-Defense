@@ -1,0 +1,45 @@
+TURRET DEFENSE
+Copyright © 2020.
+All rights reserved.
+
+This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and the mentioned owner of this Software for the software product identified above ("Turret Defense"). By installing, copying, or otherwise using the Turret Defense, you agree to be bound by the terms of this EULA. If you do not agree to the terms of this EULA, do not install or use the Turret Defense. The owner of this products are Maciej Kopka, Dominik Rak, Pawel Wolski and Jakub Zawiasa.
+
+TURRET DEFENSE PRODUCT LICENSE
+The Turret Defense is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. The Turret Defense is licensed, not sold.
+
+1. INITIAL INFORMATION
+
+The Turret Defense is freeware. You can use it for free, no registration is required. You are expressly prohibited from modifying, merging, selling, or leasing in any matter, the Turret Defense or any portion thereof.
+
+2. GRANT OF LICENSE. 
+
+This EULA grants you the following rights: Installation and Use. You may install and use an unlimited number of copies of the Turret Defense.
+
+Distribution. You may distribute an unlimited number of copies of the Turret Defense; provided that each copy shall be a true and complete copy, including all copyright and trademark notices, and shall be accompanied by a copy of this EULA. Copies of the Turret Defense may be distributed as a standalone product or included with your own product.
+
+3. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.
+
+Limitations on Reverse Engineering, Decompilation, and Disassembly. You may not reverse engineer, decompile, or disassemble the Turret Defense, except and only to the extent that such activity is expressly permitted by applicable law not with standing this limitation.
+
+Separation of Components.
+The Turret Defense is licensed as a single product. Its component parts may not be separated for use on more than one computer.
+
+Software Transfer.
+You may permanently transfer all of your rights under this EULA, provided the recipient agrees to the terms of this EULA.
+
+Termination.
+Without prejudice to any other rights, the owner of this Software may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the Turret Defense and all of its component parts. 
+
+4. COPYRIGHT.
+All title and copyrights in and to the Turret Defense (including but not limited to any images, photographs, animations, video, audio, music, text, and "applets" incorporated into the Turret Defense), the accompanying printed materials, and any copies of the Turret Defense are owned by the owner of this Software. The Turret Defense is protected by copyright laws and international treaty provisions. Therefore, you must treat the Turret Defense like any other copyrighted material except that you may install the Turret Defense on a single computer provided you keep the original solely for backup or archival purposes.
+
+5. GRAPHICS RULES
+All rules describe above apply to the pictures using in game. Models of Forrest Pack and Winter Arena are property of AurynSky (AurynSkyGames@gmail.com) and might be used in commercial projects. All types of turrets model apply to BRACKEYS (http://devassets.com/about/). Lumberjacks models apply to HONETi (office@honeti.com). The owner of icons used in all types of screens is PONETI (ponetisup@gmail.com).
+
+LIMITED WARRANTY
+
+NO WARRANTIES.
+The owners of this Software expressly disclaims any warranty for the Turret Defense. The Turret Defense and any related documentation is provided "as is" without warranty of any kind, either express or implied, including, without limitation, the implied warranties or merchantability, fitness for a particular purpose, or noninfringement. The entire risk arising out of use or performance of the Turret Defense remains with you.
+
+NO LIABILITY FOR DAMAGES.
+In no event shall the owner of this Software be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use this product, even if the owners of this Software has been advised of the possibility of such damages. Because some states/jurisdictions do not allow the exclusion or limitation of liability for consequential or incidental damages, the above limitation may not apply to you.
